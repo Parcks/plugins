@@ -1,0 +1,18 @@
+{
+  "type":"plugin",
+  "cmds":[
+    {
+      "root":false,
+      "do":[
+        "whoami",
+        "ls"
+      ]
+    },
+    {
+      "root":false,
+      "do":[
+        "pwd"
+      ]
+    }
+  ]
+}
