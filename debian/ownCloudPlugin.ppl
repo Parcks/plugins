@@ -1,0 +1,30 @@
+{
+  "type":"plugin",
+  "cmds":[
+    {
+      "root":false,
+      "do":[
+        "wget https://download.owncloud.org/community/owncloud-10.0.2.zip",
+        "unzip owncloud-10.0.2.zip"
+      ]
+    },
+    {
+      "root":true,
+      "do":[
+        "cp -r owncloud /var/www"
+      ]
+    },
+    {
+      "root":true,
+      "do":[
+        "chown -R www-data:www-data /var/www/owncloud/"
+      ]
+    },
+    {
+      "root": false,
+      "do":[
+        "firefox http://localhost/owncloud"
+      ]
+    }
+  ]
+}
