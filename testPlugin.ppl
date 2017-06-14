@@ -1,5 +1,6 @@
 {
   "type":"shell",
+  "name":"test-plugin",
   "cmds":[
     {
       "root":false,
