@@ -1,0 +1,61 @@
+[
+  {
+    "type":"shell",
+    "name":"Download nextcloud",
+    "cmds":[
+      {
+        "root":false,
+        "do":[
+          "wget https://download.nextcloud.com/server/releases/nextcloud-12.0.0.zip",
+          "unzip nextcloud-12.0.0.zip",
+          "rm nextcloud-12.0.0.zip"
+        ]
+      }
+    ]
+  },
+  {
+    "type":"shell",
+    "name":"Move to webserverroot",
+    "cmds":[
+      {
+        "root":true,
+        "do":[
+          "mv nextcloud /var/www"
+        ]
+      }
+    ]
+  },
+  {
+    "root":true,
+    "type":"file-create",
+    "name":"Create server configuration file",
+    "destination-path":"/etc/apache2/sites-available/nextcloud.conf",
+    "contents":"Alias \/nextcloud \"\/var\/www\/nextcloud\/\"\r\n\r\n<Directory \/var\/www\/nextcloud\/>\r\n  Options +FollowSymlinks\r\n  AllowOverride All\r\n\r\n <IfModule mod_dav.c>\r\n  Dav off\r\n <\/IfModule>\r\n\r\n SetEnv HOME \/var\/www\/nextcloud\r\n SetEnv HTTP_HOME \/var\/www\/nextcloud\r\n\r\n<\/Directory>\r\n"
+  },
+  {
+    "name":"Finish installation",
+    "type":"shell",
+    "cmds":[
+      {
+        "root":true,
+        "do":[
+          "ln -s /etc/apache2/sites-available/nextcloud.conf /etc/apache2/sites-enabled/nextcloud.conf",
+          "service apache2 restart",
+          "chown -R www-data:www-data /var/www/nextcloud/"
+        ]
+      }
+    ]
+  },
+  {
+    "name":"Fire up firefox",
+    "type":"shell",
+    "cmds":[
+      {
+        "root":false,
+        "do":[
+          "firefox http://localhost/nextcloud"
+        ]
+      }
+    ]
+  }
+]

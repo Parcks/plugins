@@ -1,0 +1,21 @@
+[
+  {
+    "name":"Laravel installer",
+    "type":"shell",
+    "cmds":[
+      {
+        "root":false,
+        "do":[
+          "composer global require \"laravel/installer\""
+        ]
+      },
+      {
+        "root":false,
+        "do":[
+          "echo \"export PATH=\"$PATH:$HOME/.config/composer/vendor/bin\"\" >> ~/.profile"
+          "source ~/.profile"
+        ]
+      }
+    ]
+  }
+]
