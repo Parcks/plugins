@@ -4,7 +4,7 @@
     "name":"Composer download script",
     "destination-path":"/tmp/composer-setup",
     "contents":"#!\/bin\/sh\r\n\r\nEXPECTED_SIGNATURE=$(wget -q -O - https:\/\/composer.github.io\/installer.sig)\r\nphp -r \"copy('https:\/\/getcomposer.org\/installer', 'composer-setup.php');\"\r\nACTUAL_SIGNATURE=$(php -r \"echo hash_file('SHA384', 'composer-setup.php');\")\r\n\r\nif [ \"$EXPECTED_SIGNATURE\" != \"$ACTUAL_SIGNATURE\" ]\r\nthen\r\n    >&2 echo 'ERROR: Invalid installer signature'\r\n    rm composer-setup.php\r\n    exit 1\r\nfi\r\n\r\nphp composer-setup.php --quiet\r\nRESULT=$?\r\nrm composer-setup.php\r\nexit $RESULT"
-  }
+  },
   {
     "name":"Download and install Composer",
     "type":"shell",
