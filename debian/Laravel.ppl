@@ -8,11 +8,22 @@
         "do":[
           "composer global require \"laravel/installer\""
         ]
-      },
+      }
+    ]
+  },
+  {
+    "name":"Add Laravel to path",
+    "type":"file-append",
+    "destination-path":"~/.profile",
+    "contents":"export PATH=\"$PATH:$HOME/.config/composer/vendor/bin"
+  },
+  {
+    "name":"Reload path",
+    "type":"shell",
+    "cmds":[
       {
         "root":false,
         "do":[
-          "echo \"export PATH=\"$PATH:$HOME/.config/composer/vendor/bin\"\" >> ~/.profile"
           "source ~/.profile"
         ]
       }
