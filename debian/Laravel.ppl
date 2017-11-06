@@ -14,8 +14,8 @@
   {
     "name":"Add Laravel to path",
     "type":"file-append",
-    "destination-path":"~/.profile",
-    "contents":"export PATH=\"$PATH:$HOME/.config/composer/vendor/bin"
+    "destination-path":"~/.profile",    
+    "contents":"export PATH=$PATH:`composer config home -g`/vendor/bin/laravel"
   },
   {
     "name":"Reload path",
