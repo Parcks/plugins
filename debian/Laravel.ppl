@@ -18,13 +18,13 @@
     "contents":"alias laravel=\"`composer config home -g`/vendor/bin/laravel\""
   },
   {
-    "name":"Reload path",
+    "name":"Reload environment",
     "type":"shell",
     "cmds":[
       {
         "root":false,
         "do":[
-          "source ~/.profile"
+          "source ~/.bashrc"
         ]
       }
     ]
