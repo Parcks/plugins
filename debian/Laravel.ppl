@@ -15,7 +15,7 @@
     "name":"Add Laravel to path",
     "type":"file-append",
     "destination-path":"~/.bashrc",    
-    "contents":"alias laravel="`composer config home -g`/vendor/bin/laravel"
+    "contents":"alias laravel=\"`composer config home -g`/vendor/bin/laravel\""
   },
   {
     "name":"Reload path",
